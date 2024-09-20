@@ -15,8 +15,8 @@ target_include_directories(obs-websocket-api INTERFACE $<BUILD_INTERFACE:${CMAKE
                                                        $<INSTALL_INTERFACE:${OBS_INCLUDE_DESTINATION}>)
 
 set_target_properties(obs-websocket-api PROPERTIES PUBLIC_HEADER lib/obs-websocket-api.h)
-
-export_target(obs-websocket-api)
+# TODO: Seems like a new bug in legacy CMake, they are trying to export non-binary target
+#export_target(obs-websocket-api)
 
 if(NOT ENABLE_WEBSOCKET OR NOT ENABLE_UI)
   message(STATUS "OBS:  DISABLED   obs-websocket")
